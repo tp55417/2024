@@ -3,7 +3,7 @@
     <div class="banner-container">
       <div class="logo-wrapper">
         <div class="logo-container">
-          <h2>COSCUP 2023</h2>
+          <h2>COSCUP 2024</h2>
           <div class="logo-content">
             <img src="../assets/images/banner-logo.svg" alt="COSCUP" />
             <div>
@@ -31,7 +31,7 @@
       </div>
     </section>
     <section class="links">
-      <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
+      <!-- <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.cfp') }}
       </a>
       <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
@@ -48,7 +48,7 @@
         <p class="codepecker-tip">{{ t('landing.links.donate_tip.codepecker') }}</p>
         <div class="line-one"></div>
         <img class="codepecker" src="@/assets/images/codepecker.png" />
-      </a>
+      </a> -->
     </section>
     <section class="media-links">
       <a

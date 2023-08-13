@@ -6,7 +6,7 @@ import type { TopicsRow } from './types'
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 
 async function fetchRemoteTopicsData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2023/json/topics.json')
+  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/topics.json')
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }

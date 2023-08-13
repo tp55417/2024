@@ -6,7 +6,7 @@ import type { CommunityRow, PartnerRow, BoothsRow, TopicsRow } from './types'
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 
 async function fetchRemoteCommunityData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2023/json/community.json')
+  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/community.json')
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }
@@ -32,7 +32,7 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
       {
         id: r.id,
         track: r.track,
-        image: `https://coscup.org/2023/images/community/${r.id}.png`,
+        image: `https://coscup.org/2024/images/community/${r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'],

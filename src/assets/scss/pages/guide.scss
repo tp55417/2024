@@ -25,14 +25,12 @@
 @include venue-theme-colors;
 
 @include page("guide") {
-
   section {
     max-width: 900px;
     margin: auto;
     padding-bottom: 30px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
   }
 
   .guide-container {
@@ -51,6 +49,7 @@
     section {
       max-width: 90%;
     }
+
     .guide-container {
       width: 100%;
     }
@@ -60,9 +59,11 @@
     .outer-container {
       max-width: calc(100% - 2rem);
     }
+
     section {
       max-width: 90%;
     }
+
     .guide-container {
       width: 100%;
     }

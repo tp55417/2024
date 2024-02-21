@@ -31,24 +31,24 @@
       </div>
     </section>
     <section class="links">
-      <!-- <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
+      <a href="https://blog.coscup.org/2024/02/coscup-2024-early-bird-call-for.html" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.cfp') }}
       </a>
-      <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
+      <!-- <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.community') }}
-      </a>
+      </a> -->
       <a href="https://volunteer.coscup.org/" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.volunteer') }}
       </a>
-      <router-link to="sponsorship">
+      <!-- <router-link to="sponsorship">
         {{ t('landing.links.sponsor') }}
-      </router-link>
+      </router-link> -->
       <a href="https://i.coscup.org/indCfS/" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.donate') }}
         <p class="codepecker-tip">{{ t('landing.links.donate_tip.codepecker') }}</p>
         <div class="line-one"></div>
         <img class="codepecker" src="@/assets/images/codepecker.png" />
-      </a> -->
+      </a>
     </section>
     <section class="media-links">
       <a

@@ -34,9 +34,9 @@
       <a href="https://blog.coscup.org/2024/02/coscup-2024-early-bird-call-for.html" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.cfp') }}
       </a>
-      <!-- <a href="https://blog.coscup.org/2023/05/ways-to-join-coscup-2023.html" target="_blank" rel="noopener noreferrer">
+      <a href="https://blog.coscup.org/2024/02/blog-post.html" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.community') }}
-      </a> -->
+      </a>
       <a href="https://volunteer.coscup.org/" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.volunteer') }}
       </a>

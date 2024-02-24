@@ -81,8 +81,8 @@
             top: 50%;
             left: 0;
             width: 80%;
-            max-width: 50%;
-            height: 250px;
+            max-width: 65%;
+            height: 280px;
             padding: 1rem 2rem;
             transform: translateY(-50%);
             background-color: var(--color-logo-wrapper-background);
@@ -112,10 +112,19 @@
                         padding-left: 1rem;
                     }
 
+                    img {
+                        width: auto;
+                        max-width: 50%;
+                        min-width: 120px;
+                        max-height: 180px;
+                        margin: 1.12rem auto;
+                    }
+
                     div {
                         display: inline-flex;
                         justify-content: flex-end;
                         vertical-align: bottom;
+                        width: fit-content;
 
                         p {
                             line-height: 1.25;

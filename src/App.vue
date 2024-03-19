@@ -54,7 +54,8 @@ export default defineComponent({
     Footer,
     FullPageProgress,
     PopUp,
-    OfflineBar
+    OfflineBar,
+    Emergency
   },
   setup () {
     setupModules()

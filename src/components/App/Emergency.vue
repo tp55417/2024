@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { computed, defineComponent, onMounted } from 'vue'
 import { usePopUp, PopUpData } from '@/modules/pop-up'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -18,7 +18,7 @@ export default defineComponent({
     const router = useRouter()
     let isOpen = false
 
-    const popUpOptions: PopUpData = {
+    const popUpOptions = computed<PopUpData>(() => ({
       popupId: 'emergency',
       order: 1,
       metaOptions: {},
@@ -31,7 +31,7 @@ export default defineComponent({
         `
       },
       onClose: () => router.push({ query: {} })
-    }
+    }))
 
     const codepeckerOnClick = () => {
       isOpen = !isOpen
@@ -40,7 +40,7 @@ export default defineComponent({
         return removeAll()
       }
 
-      openPopUp(popUpOptions)
+      openPopUp(popUpOptions.value)
       router.push({ query: { announcement: null } })
     }
 
@@ -50,7 +50,7 @@ export default defineComponent({
 
       if (read !== '0319' || query !== undefined) {
         isOpen = true
-        openPopUp(popUpOptions)
+        openPopUp(popUpOptions.value)
         window.localStorage.setItem('announcement', '0319')
       }
     })

@@ -8,11 +8,14 @@
 import { defineComponent, onMounted } from 'vue'
 import { usePopUp, PopUpData } from '@/modules/pop-up'
 import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
 
 export default defineComponent({
   setup () {
     const { t } = useI18n()
     const { openPopUp, removeAll } = usePopUp()
+    const route = useRoute()
+    const router = useRouter()
     let isOpen = false
 
     const popUpOptions: PopUpData = {
@@ -26,7 +29,8 @@ export default defineComponent({
           <h1>${t('landing.emergency.title')}</h1>
           <p>${t('landing.emergency.content')}</p>
         `
-      }
+      },
+      onClose: () => router.push({ query: {} })
     }
 
     const codepeckerOnClick = () => {
@@ -37,12 +41,14 @@ export default defineComponent({
       }
 
       openPopUp(popUpOptions)
+      router.push({ query: { announcement: null } })
     }
 
     onMounted(() => {
+      const query = route.query.announcement
       const read = localStorage.getItem('announcement')
 
-      if (read !== '0319') {
+      if (read !== '0319' || query !== undefined) {
         isOpen = true
         openPopUp(popUpOptions)
         window.localStorage.setItem('announcement', '0319')

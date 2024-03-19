@@ -6,7 +6,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { usePopUp } from '@/modules/pop-up'
+import { usePopUp, PopUpData } from '@/modules/pop-up'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -15,6 +15,20 @@ export default defineComponent({
     const { openPopUp, removeAll } = usePopUp()
     let isOpen = false
 
+    const popUpOptions: PopUpData = {
+      popupId: 'emergency',
+      order: 1,
+      metaOptions: {},
+      containerData: { type: 'default' },
+      contentData: {
+        type: 'html',
+        html: `
+          <h1>${t('landing.emergency.title')}</h1>
+          <p>${t('landing.emergency.content')}</p>
+        `
+      }
+    }
+
     const codepeckerOnClick = () => {
       isOpen = !isOpen
 
@@ -22,25 +36,16 @@ export default defineComponent({
         return removeAll()
       }
 
-      openPopUp({
-        popupId: 'emergency',
-        order: 1,
-        metaOptions: {},
-        containerData: { type: 'default' },
-        contentData: {
-          type: 'html',
-          html: `
-          <h1>${t('landing.emergency.title')}</h1>
-          <p>${t('landing.emergency.content')}</p>
-      `
-        }
-      })
+      openPopUp(popUpOptions)
     }
 
-    return {
-      codepeckerOnClick,
-      t
+    if (window.localStorage.getItem('emergency0319') !== 'read') {
+      isOpen = true
+      openPopUp(popUpOptions)
+      window.localStorage.setItem('emergency0319', 'read')
     }
+
+    return { t, codepeckerOnClick }
   }
 })
 

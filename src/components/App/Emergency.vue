@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import { usePopUp, PopUpData } from '@/modules/pop-up'
 import { useI18n } from 'vue-i18n'
 
@@ -39,13 +39,23 @@ export default defineComponent({
       openPopUp(popUpOptions)
     }
 
-    if (window.localStorage.getItem('emergency0319') !== 'read') {
-      isOpen = true
-      openPopUp(popUpOptions)
-      window.localStorage.setItem('emergency0319', 'read')
-    }
+    onMounted(() => {
+      const read = localStorage.getItem('announcement')
+
+      if (read !== '0319') {
+        isOpen = true
+        openPopUp(popUpOptions)
+        window.localStorage.setItem('announcement', '0319')
+      }
+    })
 
     return { t, codepeckerOnClick }
+  },
+  mounted () {
+
+    // if (window.localStorage.getItem('emergency0319') !== 'read') {
+
+    // }
   }
 })
 

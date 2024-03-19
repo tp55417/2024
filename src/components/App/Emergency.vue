@@ -1,15 +1,17 @@
 <template>
   <div id="emergency" @click="codepeckerOnClick">
-    <p>Emergency</p>
+    <p>{{ t('landing.emergency.title') }}</p>
     <img class="codepecker" src="@/assets/images/codepecker.png" />
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { usePopUp } from '@/modules/pop-up'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   setup () {
+    const { t } = useI18n()
     const { openPopUp, removeAll } = usePopUp()
     let isOpen = false
 
@@ -26,17 +28,18 @@ export default defineComponent({
         metaOptions: {},
         containerData: { type: 'default' },
         contentData: {
-          type: 'html', html: `
-          <h1>警急通知</h1>
-          <p>社群朋友 / COSCUP 好朋友們好，<br/>籌備志工團隊接獲台電通知，預計於年會當週施行區域性停電維護校區設備。我們正密切地瞭解停電計畫，希望幫社群找到影響最小的方案。 我們一旦有最新異動消息，將會第一時間與各位朋友們通知，也有勞各位密切注意 COSCUP 官網及各社群平臺的最新訊息。</p>
-          <p>Dear Community Friends and COSCUP Companions,<br/>We have received a notification from Taiwan Power Company that a planned work blackout is scheduled during the week of our annual conference. We're closely watching the power outage plans to reduce community impact. We will promptly inform everyone of any new updates. Please also keep an eye on the COSCUP official website and our social media platforms for the latest updates.</p>
+          type: 'html',
+          html: `
+          <h1>${t('landing.emergency.title')}</h1>
+          <p>${t('landing.emergency.content')}</p>
       `
         }
       })
     }
 
     return {
-      codepeckerOnClick
+      codepeckerOnClick,
+      t
     }
   }
 })

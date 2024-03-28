@@ -112,7 +112,7 @@
       "prime-session": "Prime Session",
       "technical": "Technical Talk",
       "workshop": "Workshop",
-      "session": "Session 30min",
+      "session": "Session",
       "flag": "Logo on Stage Flag in Keynote Hall (co-branded with COSCUP)",
       "lanyards": "Lanyards (Exclusive Sponsorship)",
       "party": "Welcome Party Sponsorship (co-branded with COSCUP)",
@@ -186,9 +186,9 @@
         "titanium": "492",
         "diamond": "492",
         "gold": "492",
-        "sliver": "X",
-        "bronze": "X",
-        "friend": "X",
+        "sliver": "",
+        "bronze": "",
+        "friend": "",
         "oversea": ""
       },
       "flag": {

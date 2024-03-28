@@ -17,7 +17,7 @@ export default defineConfig(({ mode, command }) => {
         const routes = [
           '/',
           '/landing',
-          // '/sponsorship',
+          '/sponsorship',
           '/map'
         ].flatMap(r => [r, `${r}/`])
         return Array.from(readdirSync('./locales/'))

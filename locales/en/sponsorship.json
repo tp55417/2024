@@ -3,7 +3,7 @@
     "title": "Sponsorship Program"
   },
   "plan": {
-    "title": "COSCUP x KCD Taiwan 2023 Sponsorship Program"
+    "title": "COSCUP Taiwan 2024 Sponsorship Program"
   },
   "contact": "Contact Us: {email}",
   "overview": {
@@ -17,18 +17,18 @@
     },
     "description": "For the past 3 to 5 years, COSCUP has received an average of 2,000 participants from dozens of communities.",
     "feedback": {
-      "title": "COSCUP 2022 survey feedback:",
+      "title": "COSCUP 2023 Feedback Survey:",
       "list": [
-        "More than 70% of the participants have a background in information technology",
+        "More than 70% of the participants have a background in information technology.",
         "About half (51%) were aged between 19 and 34",
-        "Top 5 favorite programming languages: Python, Go, C++, JavaScript, and C"
+        "Top 5 favorite programming languages: Python、JavaScript、C++、Go、Bash/Shell"
       ]
     },
-    "end": "* The sponsorship for COSCUP 2023 is now full. We appreciate the support from all the sponsors! Please follow [COSCUP's Facebook Page](https://www.facebook.com/coscup/) to stay updated on future sponsorship opportunities."
+    "end": ""
   },
   "level": {
     "title": "Sponsorship Package",
-    "subtitle": "(Unit: USD. Please note that actual foreign exchange rates that will be applied to your sponsor fee will differ from these examples: FOREX as 1 USD= 28TWD)",
+    "subtitle": "(Unit: USD. Please note that actual foreign exchange rates will be applied to your sponsor fee, which will differ from the following prices that take 1 USD= 28TWD)",
     "columns": {
       "cost": "Cost",
       "benefit": "Benefits"
@@ -39,17 +39,8 @@
         "subtitle": "",
         "cost": "8,500",
         "benefits": [
-          "Logo and company profile listed on COSCUP official website",
-          "Promotion via COSCUP social media",
-          "Logo is exposed on the welcome wall at the check-in area",
-          "Agenda page ads (the frequency depends on the level of sponsorship)",
-          "1 article on the COSCUP blog",
-          "4 Welcome Party free drink tickets",
-          "Recruiting Board Sponsorship",
-          "Logo displayed at reception table (co-branded with COSCUP)",
-          "Logo on stage flag in prime hall (co-branded with COSCUP)",
-          "Welcome Party Sponsorship (co-branded with COSCUP)",
-          "Promotion at the snack area"
+          "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Logo on stage flag in keynote hall\n- Welcome Party Sponsorship\n- Promotion via COSCUP social media\n- 1 article on the COSCUP blog\n- 4 Welcome Party free drink tickets\n- Recruiting Board Sponsorship\n- Promotion at the snack area"
         ]
       },
       "diamond": {
@@ -57,13 +48,8 @@
         "subtitle": "",
         "cost": "6,090",
         "benefits": [
-          "Logo and company profile listed on COSCUP official website",
-          "Promotion via COSCUP social media",
-          "Logo is exposed on the welcome wall at the check-in area",
-          "Agenda page ads (the frequency depends on the level of sponsorship)",
-          "1 article on the COSCUP blog",
-          "2 Welcome Party free drink tickets",
-          "Promotion at the snack area"
+          "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media\n- 1 article on the COSCUP blog\n- 2 Welcome Party free drink tickets\n- Promotion at the snack area"
         ]
       },
       "gold": {
@@ -71,12 +57,8 @@
         "subtitle": "",
         "cost": "4,910",
         "benefits": [
-          "Logo and company profile listed on COSCUP official website",
-          "Promotion via COSCUP social media",
-          "Logo is exposed on the welcome wall at the check-in area",
-          "Agenda page ads (the frequency depends on the level of sponsorship)",
-          "1 article on the COSCUP blog",
-          "1 Welcome Party free drink tickets"
+          "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media\n- 1 article on the COSCUP blog\n- 1 Welcome Party free drink tickets"
         ]
       },
       "sliver": {
@@ -84,10 +66,8 @@
         "subtitle": "",
         "cost": "2,945",
         "benefits": [
-          "Logo and company profile listed on COSCUP official website",
-          "Promotion via COSCUP social media",
-          "Logo is exposed on the welcome wall at the check-in area",
-          "Agenda page ads (the frequency depends on the level of sponsorship)"
+          "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media"
         ]
       },
       "bronze": {
@@ -95,10 +75,8 @@
         "subtitle": "",
         "cost": "1,375",
         "benefits": [
-          "Logo and company profile listed on COSCUP official website",
-          "Promotion via COSCUP social media",
-          "Logo is exposed on the welcome wall at the check-in area",
-          "Agenda page ads (the frequency depends on the level of sponsorship)"
+          "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media"
         ]
       },
       "friend": {
@@ -106,9 +84,18 @@
         "subtitle": "",
         "cost": "785",
         "benefits": [
-          "Logo and company profile listed on COSCUP official website",
-          "Promotion via COSCUP social media",
-          "Logo is exposed on the welcome wall at the check-in area"
+          "Official website and OPass app:\n- Company profile listed.",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media"
+        ]
+      },
+      "oversea": {
+        "name": "Oversea Travel Sponsor Level",
+        "subtitle": "",
+        "cost": "214 plus ＋ HK/China/Macao：535/Person\n\tOceania、Asia：1,070/Person\n\tAfrica：1,600/Person\n\tEurope and North America：2,140/Person\n\tCentral and South America：2,945/Person",
+        "benefits": [
+          "Official website and OPass app:\n- Company profile listed.",
+          "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- 2 Travel Sponsor pins(1 for Sponsor, 1 for Speaker)\n- Promotion via COSCUP social media",
+          "Call for Sponsor Expiration date:\n- 2024/6/14"
         ]
       }
     }
@@ -126,7 +113,7 @@
       "technical": "Technical Talk",
       "workshop": "Workshop",
       "session": "Session 30min",
-      "flag": "Logo on Stage Flag in prime Hall (co-branded with COSCUP)",
+      "flag": "Logo on Stage Flag in Keynote Hall (co-branded with COSCUP)",
       "lanyards": "Lanyards (Exclusive Sponsorship)",
       "party": "Welcome Party Sponsorship (co-branded with COSCUP)",
       "promotion": "Promotion at the Snack Area (2 days)",
@@ -147,14 +134,12 @@
       "workshop": [
         "Duration: 2 hrs",
         "Session Time: Day 2 1000 AM - 0300 PM",
-        "Room Capacity: 60 ppl",
-        "nclude: Free physical advertisement *"
+        "Room Capacity: 60 ppl"
       ],
       "session": [
         "Duration: 30 mins",
         "Session Time: Day 2 1000 AM - 0300 PM",
-        "Room Capacity: 60 ppl",
-        "Include: Free physical advertisement *"
+        "Room Capacity: 60 ppl"
       ],
       "website-agenda-ads": [
         "Choices: Increase ad weights or add new materials to increase exposure. Please confirm details with a sponsoring specialist."
@@ -167,7 +152,8 @@
         "gold": "980",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "prime-session": {
         "titanium": "1,608",
@@ -175,7 +161,8 @@
         "gold": "",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "technical": {
         "titanium": "983",
@@ -183,7 +170,8 @@
         "gold": "983",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "workshop": {
         "titanium": "983",
@@ -191,7 +179,8 @@
         "gold": "983",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "session": {
         "titanium": "492",
@@ -199,7 +188,8 @@
         "gold": "492",
         "sliver": "X",
         "bronze": "X",
-        "friend": "X"
+        "friend": "X",
+        "oversea": ""
       },
       "flag": {
         "titanium": "Included",
@@ -207,7 +197,8 @@
         "gold": "",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "lanyards": {
         "titanium": "3,140",
@@ -215,7 +206,8 @@
         "gold": "3,140",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "party": {
         "titanium": "Included",
@@ -223,7 +215,8 @@
         "gold": "5,890",
         "sliver": "",
         "bronze": "",
-        "friend": ""
+        "friend": "",
+        "oversea": ""
       },
       "promotion": {
         "titanium": "Included",
@@ -231,18 +224,19 @@
         "gold": "1,180",
         "sliver": "1,180",
         "bronze": "1,180",
-        "friend": "1,180"
+        "friend": "1,180",
+        "oversea": "1,180"
       },
       "website-agenda-ads": {
-        "all": "470"
+        "all": "470/Ads"
       }
     },
     "explains": [
-      "* Free physical advertisement must include the desired advertising information or vacancy content following the rules and regulations of COSCUP, which will be provided separately by sponsoring specialist."
+      ""
     ],
     "end": {
       "content": "Deadline for sponsorship: {date}",
-      "date": "July 17, 2023"
+      "date": "July 5, 2024"
     }
   },
   "faq": {
@@ -261,7 +255,7 @@
         "a": "A Prime session speech will take place in RB 105, a venue that can hold up to 500 people, on Day 1. It will be a 45-minute speech during a non-exclusive time slot, and all the programs are taking place simultaneously. This speech is only available to Diamond-level sponsors or higher.\nA Technical session is a 30-minute speech that will take place on Day 1 in RB 105 and all the programs are taking place simultaneously.  This speech is only available to sponsors at the Gold level or higher. \nBoth Prime and Technical sessions take place in RB 105, a venue that can hold up to 500 people.\nThe Workshop is a two-hour session that will take place on Day 2.\nThe Session (30min) is a 30-minute speech that will take place on Day 2.\nBoth Workshop and Session (30min) speeches will take place in the TR Building, and only sponsors at the Gold level or higher can add them to their package.\nAll speech time slots are limited and have a purchasing deadline, please confirm with your sponsorship window to check if there are available to book earlier and avoid missing out. Additionally, we encourage you to follow the Call For Papers and let your engineers choose the community they are interested in presenting."
       },
       {
-        "q": "How are the logos of the sponsors ordered? How were the booths chosen?",
+        "q": "How are the logos of the sponsors listed on website? How were the booths chosen?",
         "a": "To protect the position of sponsor logos and to ensure fairness, the ranking of sponsor logos and the selection of booths are determined by \"sponsorship level\" and \"order of sponsorship payment.\"\nFor Gold-level sponsors who have purchased a booth, the logo of the earliest paid sponsor will be ranked first, and the booth location will be selected first."
       },
       {
@@ -277,6 +271,10 @@
         "a": "In response to the announcement of the Central Epidemic Command Center of Taiwan to prohibit indoor gathering activities, COSCUP will be conducted as an online video live broadcast, with the sponsor's logo exposed before and after the video. The sponsorship fee is 60% of the total sponsorship (external tax)."
       },
       {
+        "q": "Can unused sponsorship benefits be refunded?",
+        "a": "If the sponsorship benefits are not utilized within the year (no materials provided), they will be regarded as relinquished and are non-refundable."
+      },
+      {
         "q": "What's OCF?",
         "a": "OCF, short for [Open Culture Foundation](https://ocf.tw/), is a non-profit organization that helps communities access administrative and financial services. COSCUP is co-organized with the Open Culture Foundation (OCF) to issue sponsorship receipts, electronic invoices, sponsorship contracts, and other legal documents."
       }
@@ -287,14 +285,14 @@
     "description": "COSCUP (Conference for Open Source Coders, Users and Promoters)",
     "messages": [
       "It's the LARGEST annual open source conference in Taiwan.",
-      "It's organized by Taiwan's open source communities since 2006.",
+      "It's organized by Taiwan's open source communities [since 2006](https://en.wikipedia.org/wiki/COSCUP).",
       "Our mission is to create a friendly environment for open source people to make friends, learn new technical skills, and share experiences."
     ],
     "ps1": "To see our past conference photos, please visit: ",
     "ps2": "96.2% of attendees would recommend others to join COSCUP"
   },
   "wish": {
-    "title": "We wish all the sponsors in COSCUP Taiwan 2023 would",
+    "title": "We wish all the sponsors in COSCUP Taiwan 2024 would",
     "list": [
       "Be inspired by new ideas and creativity.",
       "Start new collaborative projects.",

@@ -70,7 +70,7 @@
                     v-for="benefit in tm(`sponsorship.level.list.${key}.benefits`)"
                     :key="`${benefit}`"
                   >
-                    {{ benefit }}
+                    <p v-html="markdown(benefit)" />
                   </li>
                 </ul>
               </td>
@@ -234,7 +234,7 @@
           v-for="message in tm('sponsorship.about-coscup.messages')"
           :key="`${message}`"
         >
-          {{ message }}
+          <p v-html="markdown(message)" />
         </li>
       </ul>
       <p>{{ t('sponsorship.about-coscup.ps1') }}<a href="https://www.flickr.com/photos/coscup/albums">COSCUP flickr album</a></p>
@@ -277,8 +277,8 @@ import { chunk } from '@/utils/common'
 import markdown from '@/utils/markdown'
 import { useTheme } from '@/modules/theme'
 
-const levelImageModules = import.meta.globEager('../assets/images/sponsorships/levels/*.svg')
-const getLevelImage = (file: string) => levelImageModules[`../assets/images/sponsorships/levels/${file}.svg`].default
+const levelImageModules = import.meta.globEager('../assets/images/sponsorships/levels/*.png')
+const getLevelImage = (file: string) => levelImageModules[`../assets/images/sponsorships/levels/${file}.png`].default
 
 const addOnsImageModules = import.meta.globEager('../assets/images/sponsorships/*.png')
 const getAddOnsImage = (file: string) => addOnsImageModules[`../assets/images/sponsorships/${file}.png`].default

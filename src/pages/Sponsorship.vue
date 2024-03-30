@@ -44,7 +44,8 @@
                 :key="`name-${key}`"
               >
                 <img :src="getImageFromLevel(key)" :alt="t(`sponsorship.level.list.${key}.name`)" >
-                {{ t(`sponsorship.level.list.${key}.name`) }}{{ t(`sponsorship.level.list.${key}.subtitle`) }}
+                <p v-html="markdown(t(`sponsorship.level.list.${key}.name`))"></p>
+                {{ t(`sponsorship.level.list.${key}.subtitle`) }}
               </th>
             </tr>
           </thead>
@@ -56,7 +57,14 @@
                 :key="`cost-${key}`"
                 class="cost"
               >
-                {{ t(`sponsorship.level.list.${key}.cost`) }}
+                <ul>
+                  <li
+                    v-for="key in tm(`sponsorship.level.list.${key}.cost`)"
+                    :key="`cost-${key}`"
+                  >
+                    <p v-html="markdown(key)" />
+                  </li>
+                </ul>
               </td>
             </tr>
             <tr>

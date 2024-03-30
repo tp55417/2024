@@ -81,17 +81,25 @@
           }
 
           &:not(:first-child) {
-            width: 33%;
+            min-width: 33%;
           }
         }
 
         tbody > tr > td:first-child {
           color: var(--color-card-title);
           word-break: normal;
+          width: 5%;
         }
 
         .cost {
           text-align: center;
+          vertical-align: middle;
+          font-size: 1.2rem;
+        }
+
+        .cost > ul {
+          list-style-type: none;
+          text-align: left;
           vertical-align: middle;
           font-size: 1.2rem;
         }

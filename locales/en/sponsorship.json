@@ -37,7 +37,7 @@
       "titanium": {
         "name": "Titanium",
         "subtitle": "",
-        "cost": "8,500",
+        "cost": ["8,500"],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Logo on stage flag in keynote hall\n- Welcome Party Sponsorship\n- Promotion via COSCUP social media\n- 1 article on the COSCUP blog\n- 4 Welcome Party free drink tickets\n- Recruiting Board Sponsorship\n- Promotion at the snack area"
@@ -46,7 +46,7 @@
       "diamond": {
         "name": "Diamond",
         "subtitle": "",
-        "cost": "6,090",
+        "cost": ["6,090"],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media\n- 1 article on the COSCUP blog\n- 2 Welcome Party free drink tickets\n- Promotion at the snack area"
@@ -55,7 +55,7 @@
       "gold": {
         "name": "Gold",
         "subtitle": "",
-        "cost": "4,910",
+        "cost": ["4,910"],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media\n- 1 article on the COSCUP blog\n- 1 Welcome Party free drink tickets"
@@ -64,7 +64,7 @@
       "sliver": {
         "name": "Silver",
         "subtitle": "",
-        "cost": "2,945",
+        "cost": ["2,945"],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media"
@@ -73,7 +73,7 @@
       "bronze": {
         "name": "Bronze",
         "subtitle": "",
-        "cost": "1,375",
+        "cost": ["1,375"],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.\n- Agenda page ads\n(The frequency depends on the level of sponsorship)",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media"
@@ -82,7 +82,7 @@
       "friend": {
         "name": "Friend",
         "subtitle": "",
-        "cost": "785",
+        "cost": ["785"],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- Promotion via COSCUP social media"
@@ -91,7 +91,14 @@
       "oversea": {
         "name": "Oversea Travel Sponsor Level",
         "subtitle": "",
-        "cost": "214 plus ＋ HK/China/Macao：535/Person\n\tOceania、Asia：1,070/Person\n\tAfrica：1,600/Person\n\tEurope and North America：2,140/Person\n\tCentral and South America：2,945/Person",
+        "cost": [
+          "214 plus ＋ ",
+          "&emsp;HK/China/Macao：535/Person",
+          "&emsp;Oceania、Asia：1,070/Person",
+          "&emsp;Africa：1,600/Person",
+          "&emsp;Europe and North America：2,140/Person",
+          "&emsp;Central and South America：2,945/Person"
+        ],
         "benefits": [
           "Official website and OPass app:\n- Company profile listed.",
           "Event Site:\n(co-branded with COSCUP)\n- Logo displayed at reception table\n- 2 Travel Sponsor pins(1 for Sponsor, 1 for Speaker)\n- Promotion via COSCUP social media",

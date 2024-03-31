@@ -125,7 +125,7 @@
                 :key="`${level}`"
               >
                 <img :src="getImageFromLevel(level)" :alt="t(`sponsorship.level.list.${level}.name`)" >
-                <p v-html="markdown(t(`sponsorship.level.list.${level}.name`))"></p>
+                {{ t(`sponsorship.level.list.${level}.name`) }}
               </th>
             </tr>
           </thead>

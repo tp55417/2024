@@ -223,7 +223,17 @@
       .level-list {
         display: block;
         list-style: none;
-        padding: 0;
+
+        ul.cost {
+          list-style-type: none;
+          padding: 10px;
+
+          li > p {
+              text-align: left;
+              vertical-align: middle;
+              font-size: 1.2rem;
+          }
+        }
 
         >li {
           margin: 2rem 0;
@@ -238,10 +248,11 @@
           }
 
           p {
-            text-align: center;
             font-size: 1.2rem;
           }
         }
+
+        
       }
 
       .add-ons-table {

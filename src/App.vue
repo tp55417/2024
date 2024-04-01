@@ -26,7 +26,6 @@
     </MainContainer>
     <FullPageProgress></FullPageProgress>
     <PopUp></PopUp>
-    <Emergency />
   </div>
 </template>
 
@@ -41,7 +40,6 @@ import Footer from '@/components/App/Footer.vue'
 import OfflineBar from '@/components/App/OfflineBar.vue'
 import { FullPageProgress } from '@/modules/progress'
 import { PopUp } from '@/modules/pop-up'
-import Emergency from '@/components/App/Emergency.vue'
 
 import '@/assets/scss/app.scss'
 
@@ -54,8 +52,7 @@ export default defineComponent({
     Footer,
     FullPageProgress,
     PopUp,
-    OfflineBar,
-    Emergency
+    OfflineBar
   },
   setup () {
     setupModules()

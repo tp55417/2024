@@ -136,12 +136,17 @@
         min-width: 750px;
 
         th {
-          width: 100%;
-          word-break: keep-all;
+          //width: 100%;
+          //word-break: keep-all;
           
           img {
             width: 60px;
             padding-bottom: 0.3rem;
+          }
+
+          &:not(:first-child) {
+            width: 100px;
+            //min-width: 33%;
           }
         }
 

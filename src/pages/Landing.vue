@@ -31,7 +31,7 @@
       </div>
     </section>
     <section class="links">
-      <a href="https://blog.coscup.org/2024/02/coscup-2024-early-bird-call-for.html" target="_blank" rel="noopener noreferrer">
+      <a href="https://blog.coscup.org/2024/03/coscup-2024-coscup-2024-call-for.html" target="_blank" rel="noopener noreferrer">
         {{ t('landing.links.cfp') }}
       </a>
       <a href="https://blog.coscup.org/2024/02/blog-post.html" target="_blank" rel="noopener noreferrer">

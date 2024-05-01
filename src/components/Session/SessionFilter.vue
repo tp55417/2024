@@ -57,7 +57,7 @@ import { useRoute, useRouter } from 'vue-router'
 export default defineComponent({
   name: 'SessionFilter',
   setup () {
-    const { filterOptions, filterValue, favoriteSessions } = useSession()
+    const { filterOptions, filterValue, favoriteSessions, getSessionById } = useSession()
     const { t, locale } = useI18n()
     const router = useRouter()
     const route = useRoute()
@@ -105,9 +105,42 @@ export default defineComponent({
       router.back()
     }
 
+    const checkMySchedule = () => {
+      const events: any[] = [];
+      favoriteSessions.value.forEach(function(SessionId) {
+        const session = computed(() => getSessionById(SessionId));
+        events.push({"startTime": new Date(session.value.start), "endTime": new Date(session.value.end)});
+      });
+      
+      var isConflict = false;
+      for (let i = 0; i < events.length - 1; i++) {
+        for (let j = i + 1; j < events.length; j++) {
+          const eventA = events[i];
+          const eventB = events[j];
+          const startTimeA = eventA["startTime"];
+          const endTimeA = eventA["endTime"];
+          const startTimeB = eventB["startTime"];
+          const endTimeB = eventB["endTime"];
+          if (
+            (endTimeA > startTimeB && startTimeA < endTimeB) ||
+            (endTimeB > startTimeA && startTimeB < endTimeA)
+          ) {
+            isConflict = true;
+          }
+        }
+      }
+      return isConflict;
+    }
+
     const share = async () => {
       if (favoriteSessions.value.length === 0) {
         window.alert(t('session.share_no_favorites'))
+        return
+      }
+
+      const isConflict = checkMySchedule(); 
+      if (isConflict) {
+        window.alert(t('session.schedule_conflicts'))
         return
       }
 

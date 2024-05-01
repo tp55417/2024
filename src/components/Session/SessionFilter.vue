@@ -117,13 +117,9 @@ export default defineComponent({
         for (let j = i + 1; j < events.length; j++) {
           const eventA = events[i];
           const eventB = events[j];
-          const startTimeA = eventA["startTime"];
-          const endTimeA = eventA["endTime"];
-          const startTimeB = eventB["startTime"];
-          const endTimeB = eventB["endTime"];
-          if (
-            (endTimeA > startTimeB && startTimeA < endTimeB) ||
-            (endTimeB > startTimeA && startTimeB < endTimeA)
+          if ( 
+            (eventA["endTime"] > eventB["startTime"] && eventA["startTime"] < eventB["endTime"]) || 
+            (eventB["endTime"] > eventA["startTime"] && eventB["startTime"] < eventA["endTime"]) 
           ) {
             isConflict = true;
           }

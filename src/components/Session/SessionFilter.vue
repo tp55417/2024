@@ -1,6 +1,9 @@
 <template>
   <article :class="{['session-filter']: true, active: active}">
     <template v-if="!isFilterCollection">
+      <button :class="{fab: true, CalendarMultipleCheck: true, active: active}" @click="checkMySchedule">
+        <icon-mdi-calendar-multiple-check></icon-mdi-calendar-multiple-check>
+      </button>
       <button :class="{fab: true, bookmark: true, active: active}" @click="showFavorites">
         <icon-mdi-bookmark></icon-mdi-bookmark>
       </button>
@@ -9,6 +12,9 @@
       </button>
     </template>
     <template v-else>
+      <button :class="{fab: true, CalendarMultipleCheck: true, active: active}" @click="checkMySchedule">
+        <icon-mdi-calendar-multiple-check></icon-mdi-calendar-multiple-check>
+      </button>
       <button :class="{fab: true, bookmark: true, active: active}" @click="share">
         <icon-mdi-share-variant />
       </button>
@@ -125,18 +131,19 @@ export default defineComponent({
           }
         }
       }
-      return isConflict;
+
+      if (isConflict) {
+        window.alert(t('session.schedule_conflicts'))
+        return
+      } else {
+        window.alert(t('session.schedule_no_conflicts'))
+        return
+      }
     }
 
     const share = async () => {
       if (favoriteSessions.value.length === 0) {
         window.alert(t('session.share_no_favorites'))
-        return
-      }
-
-      const isConflict = checkMySchedule(); 
-      if (isConflict) {
-        window.alert(t('session.schedule_conflicts'))
         return
       }
 
@@ -168,7 +175,8 @@ export default defineComponent({
       close,
       share,
       hasFilters,
-      clearFilters
+      clearFilters,
+      checkMySchedule
     }
   }
 })

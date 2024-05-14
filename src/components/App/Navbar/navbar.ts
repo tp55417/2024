@@ -60,7 +60,7 @@ export function useNavbarItems () {
   const internalLinksThatFixedInNavbar: string[] = ['home']
   const internalLinksThatHiddenInMenu: string[] = []
 
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const currentRoute = useRoute()
   const getNavbarItemText = (itemName: string) => t(`app.navbar['${itemName}']`)
   const internalLinkDataList = computed<InternalLinkData[]>(() => pageRouteNameList
@@ -113,7 +113,7 @@ export function useNavbarItems () {
         text: getNavbarItemText('coc'),
         fixedInNavbar: false,
         hiddenInMenu: false,
-        url: 'https://hackmd.io/s/SyCQqip2N'
+        url: locale.value === 'zh-TW' ? 'https://hackmd.io/@coscup/cococo-zh' : 'https://hackmd.io/@coscup/cococo-en'
       },
       component: ExternalLink
     }

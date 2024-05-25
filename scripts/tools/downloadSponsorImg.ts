@@ -7,7 +7,7 @@ import axios from 'axios'
 import dotenv from 'dotenv'
 import { join } from 'node:path'
 
-const DIST = path.join(path.resolve('./'), './dist')
+const DIST = path.join(path.resolve('./'), './public/images')
 
 dotenv.config({ path: join(process.cwd(), '.env') })
 dotenv.config({ path: join(process.cwd(), '.env.local') })

@@ -2,10 +2,15 @@
 import { google, sheets_v4 } from 'googleapis'
 import { mkdir, writeFile } from 'fs/promises'
 import * as path from 'path'
-import get from 'lodash/get'
+import get from 'lodash-es/get'
 import axios from 'axios'
+import dotenv from 'dotenv'
+import { join } from 'node:path'
 
 const DIST = path.join(path.resolve('./'), './dist')
+
+dotenv.config({ path: join(process.cwd(), '.env') })
+dotenv.config({ path: join(process.cwd(), '.env.local') })
 
 async function getSpreadsheet (
   sheetRange: string
@@ -14,7 +19,7 @@ async function getSpreadsheet (
   try {
     const sheetsData = await sheets.spreadsheets.get({
       key: process.env.SPREADSHEET_API_KEY,
-      spreadsheetId: '1mioOkTnkXUCuMqQN_07Q-ebB_wHxSGrsozMNTSJfby4',
+      spreadsheetId: process.env.SPREADSHEET_ID,
       includeGridData: true,
       ranges: [sheetRange]
     })

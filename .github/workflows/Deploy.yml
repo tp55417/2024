@@ -40,6 +40,9 @@ jobs:
       - name: Linting 🔍
         run: pnpm run lint
 
+      - name: Download static resource
+        run: pnpm run tool:download-sponsor-image
+
       - name: Build production 🚧
         run: pnpm run build
 

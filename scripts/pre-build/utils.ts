@@ -19,12 +19,14 @@ export function saveJSON (name: string, data: any) {
 }
 
 export async function getLoadedSpreadsheetDocument () {
-  dotenv.config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env.local') })
+  dotenv.config({ path: join(process.cwd(), '.env') })
+  dotenv.config({ path: join(process.cwd(), '.env.local') })
   const API_KEY = process.env.SPREADSHEET_API_KEY
+  const SPREADSHEET_ID = process.env.SPREADSHEET_ID
 
   if (!API_KEY) return null
+  if (!SPREADSHEET_ID) return null
 
-  const SPREADSHEET_ID = '1mioOkTnkXUCuMqQN_07Q-ebB_wHxSGrsozMNTSJfby4'
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID)
   doc.useApiKey(API_KEY)
   try {

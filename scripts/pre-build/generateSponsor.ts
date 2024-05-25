@@ -41,7 +41,7 @@ function transformSponsorMap (rows: SponsorRow[]) {
       {
         id: r.id,
         level: r.level,
-        image: `https://coscup.org/2024-static/images/sponsor/${r.id}.png`,
+        image: `/images/sponsor/${r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'],
@@ -64,8 +64,8 @@ function transformSponsorNews (rows: SponsorNewsRow[], sponsorLevelMap: ReturnTy
       id: r.newsId,
       sponsor: r.sponsorId,
       image: {
-        vertical: `https://coscup.org/2023-static/images/sponsor-news/${r.sponsorId}-${r.newsId}-vertical.png`,
-        horizontal: `https://coscup.org/2023-static/images/sponsor-news/${r.sponsorId}-${r.newsId}-horizontal.png`
+        vertical: `/images/sponsor-news/${r.sponsorId}-${r.newsId}-vertical.png`,
+        horizontal: `/images/sponsor-news/${r.sponsorId}-${r.newsId}-horizontal.png`
       },
       description: r.description,
       link: r.link,

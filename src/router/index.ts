@@ -40,8 +40,7 @@ const routes: RouteRecordRaw[] = import.meta.env.VITE_LANDING_ONLY === 'true'
         name: 'Sponsor',
         component: () => import('@/pages/Sponsor.vue'),
         meta: {
-          order: 5,
-          hidden: true
+          order: 5
         }
       }
     ]
@@ -137,8 +136,7 @@ const routes: RouteRecordRaw[] = import.meta.env.VITE_LANDING_ONLY === 'true'
         name: 'Sponsor',
         component: () => import('@/pages/Sponsor.vue'),
         meta: {
-          order: 6,
-          hidden: true
+          order: 6
         }
       },
       {

@@ -59,7 +59,6 @@
     "@types/lodash": "^4.17.4",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.19.33",
-    "@types/ol": "^7.0.0",
     "@types/prismjs": "^1.26.4",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",

@@ -79,7 +79,7 @@ export default defineComponent({
     })
 
     const staffData = computed(() => {
-      const groupSequence = ['coordinator', 'secretary', 'program', 'field', 'finance', 'it', 'marketing', 'photo', 'sponsor', 'streaming', 'documentary', 'booth']
+      const groupSequence = ['coordinator', 'secretary', 'program', 'field', 'finance', 'it', 'marketing', 'photo', 'sponsor', 'streaming', 'documentary', 'engagement', 'booth', 'coc']
       return _staffData
         .sort((a, b) => groupSequence.indexOf(a.tid) - groupSequence.indexOf(b.tid))
         .map((group) => {

@@ -14,7 +14,10 @@
     "it": "資訊組",
     "photo": "攝影組",
     "sponsor": "贊助組",
-    "booth": "擺攤組"
+    "booth": "擺攤組",
+    "engagement": "交流組",
+    "coc": "CoC 服務小組"
+
   },
   "intro": {
     "title": "歡迎加入志工團隊",

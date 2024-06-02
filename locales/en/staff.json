@@ -14,7 +14,9 @@
     "it": "IT Staff",
     "photo": "Photo Staff",
     "sponsor": "Sponsor Staff",
-    "booth": "Booth Staff"
+    "booth": "Booth Staff",
+    "engagement": "Engagement Staff",
+    "coc": "Code of Conduct Service Staff"
   },
   "intro": {
     "title": "Join as Volunteer",

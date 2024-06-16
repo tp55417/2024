@@ -1,9 +1,9 @@
 <template>
   <article :class="{['session-filter']: true, active: active}">
+    <button class="fab CalendarMultipleCheck" :class="{ active }" @click="checkMySchedule" title="收藏議程時間衝突檢查">
+      <icon-mdi-calendar-multiple-check />
+    </button>
     <template v-if="!isFilterCollection">
-      <button :class="{fab: true, CalendarMultipleCheck: true, active: active}" @click="checkMySchedule">
-        <icon-mdi-calendar-multiple-check></icon-mdi-calendar-multiple-check>
-      </button>
       <button :class="{fab: true, bookmark: true, active: active}" @click="showFavorites">
         <icon-mdi-bookmark></icon-mdi-bookmark>
       </button>
@@ -12,9 +12,6 @@
       </button>
     </template>
     <template v-else>
-      <button :class="{fab: true, CalendarMultipleCheck: true, active: active}" @click="checkMySchedule">
-        <icon-mdi-calendar-multiple-check></icon-mdi-calendar-multiple-check>
-      </button>
       <button :class="{fab: true, bookmark: true, active: active}" @click="share">
         <icon-mdi-share-variant />
       </button>
@@ -59,6 +56,11 @@ import { useSession } from '@/modules/session'
 import { useI18n } from 'vue-i18n'
 import { Locale } from '@/modules/i18n'
 import { useRoute, useRouter } from 'vue-router'
+
+interface SessionTimeSpan {
+  startTime: Date;
+  endTime: Date;
+}
 
 export default defineComponent({
   name: 'SessionFilter',
@@ -112,32 +114,31 @@ export default defineComponent({
     }
 
     const checkMySchedule = () => {
-      const events: any[] = [];
-      favoriteSessions.value.forEach(function(SessionId) {
-        const session = computed(() => getSessionById(SessionId));
-        events.push({"startTime": new Date(session.value.start), "endTime": new Date(session.value.end)});
-      });
-      
-      var isConflict = false;
+      const events: Array<SessionTimeSpan> = []
+
+      favoriteSessions.value.forEach((sessionId) => {
+        const session = computed(() => getSessionById(sessionId))
+        events.push({ startTime: new Date(session.value.start), endTime: new Date(session.value.end) })
+      })
+
+      let isConflict = false
       for (let i = 0; i < events.length - 1; i++) {
         for (let j = i + 1; j < events.length; j++) {
-          const eventA = events[i];
-          const eventB = events[j];
-          if ( 
-            (eventA["endTime"] > eventB["startTime"] && eventA["startTime"] < eventB["endTime"]) || 
-            (eventB["endTime"] > eventA["startTime"] && eventB["startTime"] < eventA["endTime"]) 
+          const eventA = events[i]
+          const eventB = events[j]
+          if (
+            (eventA.endTime > eventB.startTime && eventA.startTime < eventB.endTime) ||
+            (eventB.endTime > eventA.startTime && eventB.startTime < eventA.endTime)
           ) {
-            isConflict = true;
+            isConflict = true
           }
         }
       }
 
       if (isConflict) {
         window.alert(t('session.schedule_conflicts'))
-        return
       } else {
         window.alert(t('session.schedule_no_conflicts'))
-        return
       }
     }
 

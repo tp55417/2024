@@ -128,9 +128,10 @@ export default defineComponent({
           const eventB = events[j]
           if (
             (eventA.endTime > eventB.startTime && eventA.startTime < eventB.endTime) ||
-            (eventB.endTime > eventA.startTime && eventB.startTime < eventA.endTime)
+                  (eventB.endTime > eventA.startTime && eventB.startTime < eventA.endTime)
           ) {
             isConflict = true
+            break
           }
         }
       }

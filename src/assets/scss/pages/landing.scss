@@ -11,7 +11,7 @@
         --color-logo: #{$coscup-blue};
         --color-markdown-link: var(--color-link);
         --color-markdown-link-hover: var(--color-link-hover);
-        --background_image: url('@/assets/images/2023_Banner_Light.jpeg');
+        --background_image: url('@/assets/images/2024_Banner_Light.png');
     }
 
     @include theme-colors-of('light', '#landing') {
@@ -22,7 +22,7 @@
             )};
         --color-link: #{$coscup-blue};
         --color-link-hover: #{lighten($coscup-blue, 8)};
-        --background_image: url('@/assets/images/2023_Banner_Light.jpeg');
+        --background_image: url('@/assets/images/2024_Banner_Light.png');
     }
 
     @include theme-colors-of('dark', '#landing') {
@@ -33,7 +33,7 @@
         --color-section-background: #{lighten($coscup-dark-blue, 8)};
         --color-link: #{lighten($coscup-dark-blue, 20)};
         --color-link-hover: #{lighten($coscup-dark-blue, 50)};
-        --background_image: url('@/assets/images/2023_Banner_Dark.jpeg');
+        --background_image: url('@/assets/images/2024_Banner_Dark.png');
     }
 }
 

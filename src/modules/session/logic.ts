@@ -151,7 +151,11 @@ export function getScheduleDays (elements: ScheduleElement[]): SchedulDay[] {
 }
 
 export function generateScheduleTable (elements: ScheduleElement[]): ScheduleTable {
-  const rooms: RoomId[] = uniq(elements.map(e => e.room))
+  const sortRoom = ['RB102', 'RB105']
+  const rooms: RoomId[] = uniq(elements.map(e => e.room)).toSorted((a, b) => {
+    if (a.startsWith('RB') || b.startsWith('RB')) return sortRoom.indexOf(b) - sortRoom.indexOf(a)
+    else return a.localeCompare(b)
+  })
   const timePoints = getTimePoints(elements)
 
   const blankCell: ScheduleTableBlankCell = {
@@ -161,6 +165,8 @@ export function generateScheduleTable (elements: ScheduleElement[]): ScheduleTab
   const spanCell: ScheduleTableSpanCell = {
     type: 'span'
   }
+
+  console.log(rooms)
 
   const columnsOfBody = rooms.map(r => elements.filter(e => e.room === r))
     .map(els => {

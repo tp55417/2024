@@ -15,11 +15,11 @@ const pretalxOptions = { headers: { Authorization: `Token ${process.env.PRETALX_
 const SPEAKER_ZH_NAME_ID = 0
 const SPEAKER_ZH_BIO_ID = 0
 const SPEAKER_EN_NAME_ID = 0
-const SPEAKER_EN_BIO_ID = 70
+const SPEAKER_EN_BIO_ID = 174
 const SESSION_ZH_DESCRIPTION_ID = 0
-const SESSION_EN_TITLE_ID = 71
-const SESSION_EN_DESCRIPTION_ID = 69
-const SESSION_TAGS_ID = 27
+const SESSION_EN_TITLE_ID = 173
+const SESSION_EN_DESCRIPTION_ID = 175
+const SESSION_TAGS_ID = 220
 const SESSION_CO_WRITE_ID = 0
 const SESSION_QA_ID = 0
 const SESSION_SLIDE_ID = 0
@@ -90,21 +90,21 @@ function genResult (talks, rooms, speakers) {
       }
     },
     {
-      id: 'Beginner',
+      id: 'Elementary',
       zh: {
         name: '入門'
       },
       en: {
-        name: 'Beginner'
+        name: 'Elementary'
       }
     },
     {
-      id: 'Skilled',
+      id: 'Middle',
       zh: {
         name: '中階'
       },
       en: {
-        name: 'Skilled'
+        name: 'Middle'
       }
     },
     {
@@ -114,6 +114,15 @@ function genResult (talks, rooms, speakers) {
       },
       en: {
         name: 'Advance'
+      }
+    },
+    {
+      id: 'Professional',
+      zh: {
+        name: '專業'
+      },
+      en: {
+        name: 'Professional'
       }
     },
     {
@@ -149,6 +158,22 @@ function genResult (talks, rooms, speakers) {
     return resTags.find((t) => t.id === locale)?.zh?.name ?? 'English'
   }
 
+  const getTags = (s) => {
+    const answer = s.answers.find((a :any) => a.question.id === 216)?.options[0].answer.en
+    const tagsMapping:Record<string, string> = {
+      Chinese: 'zh-tw',
+      English: 'en',
+      Japanese: 'ja-JP'
+    }
+
+    let lang:string | string[]| undefined = tagsMapping[answer]
+    lang = lang ? [lang] : []
+
+    return lang
+      .concat(s.answers.find(a => a.question.id === SESSION_TAGS_ID) !== undefined ? [s.answers.find(a => a.question.id === SESSION_TAGS_ID).options[0].answer.en] : [])
+      .concat(s.tags?.includes('prime session') ? ['Prime'] : [])
+  }
+
   const resSessions = talks.results.map((s :any) => {
     return {
       id: s.code,
@@ -166,9 +191,7 @@ function genResult (talks, rooms, speakers) {
         description: getAnswer(s, SESSION_EN_DESCRIPTION_ID, s.abstract || '')
       },
       speakers: s.speakers.map(ss => ss.code),
-      tags: [s.content_locale]
-        .concat(s.answers.find(a => a.question.id === SESSION_TAGS_ID) !== undefined ? [s.answers.find(a => a.question.id === SESSION_TAGS_ID).options[0].answer.en] : [])
-        .concat(s.tags?.includes('prime session') ? ['Prime'] : []),
+      tags: getTags(s),
       // co_write: getAnswer(s, SESSION_CO_WRITE_ID, null),
       co_write: CO_WRITE_MAP?.[s.code as keyof typeof CO_WRITE_MAP]?.URL || null,
       qa: getAnswer(s, SESSION_QA_ID, null),
@@ -191,9 +214,9 @@ export default async function run () {
   let data = {}
   try {
     const results = await Promise.all([
-      axios.get('https://pretalx.coscup.org/api/events/coscup-2023/talks/?limit=500', pretalxOptions),
-      axios.get('https://pretalx.coscup.org/api/events/coscup-2023/rooms/?limit=500', pretalxOptions),
-      axios.get('https://pretalx.coscup.org/api/events/coscup-2023/speakers/?limit=500', pretalxOptions)
+      axios.get('https://pretalx.coscup.org/api/events/coscup-2024/talks/?limit=500', pretalxOptions),
+      axios.get('https://pretalx.coscup.org/api/events/coscup-2024/rooms/?limit=500', pretalxOptions),
+      axios.get('https://pretalx.coscup.org/api/events/coscup-2024/speakers/?limit=500', pretalxOptions)
     ])
     data = genResult(results[0].data, results[1].data, results[2].data)
   } catch (e) {

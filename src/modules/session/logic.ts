@@ -152,7 +152,8 @@ export function getScheduleDays (elements: ScheduleElement[]): SchedulDay[] {
 
 export function generateScheduleTable (elements: ScheduleElement[]): ScheduleTable {
   const sortRoom = ['RB102', 'RB105']
-  const rooms: RoomId[] = uniq(elements.map(e => e.room)).toSorted((a, b) => {
+  const rooms: RoomId[] = uniq(elements.map(e => e.room))
+  rooms.sort((a, b) => {
     if (a.startsWith('RB') || b.startsWith('RB')) return sortRoom.indexOf(b) - sortRoom.indexOf(a)
     else return a.localeCompare(b)
   })

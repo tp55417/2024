@@ -34,7 +34,7 @@ export default defineConfig(({ mode, command }) => {
           '/sponsorship',
           '/session',
           '/room',
-          '/community',
+          // '/community',
           '/venue',
           '/map',
           '/sponsor',

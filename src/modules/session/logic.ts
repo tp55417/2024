@@ -13,16 +13,18 @@ import type { Session, ScheduleElement, RawData, SessionType, Room, Speaker, Tag
 
 export const TIMEZONE_OFFSET: number = -480
 
+const ROOM_ORDER: RoomId[] = [
+  'RB105', 'RB101', 'RB102',
+  'TR209', 'TR210', 'TR211', 'TR212', 'TR213', 'TR214',
+  'TR313',
+  'TR409-2', 'TR410', 'TR411', 'TR412-1', 'TR412-2', 'TR413-1',
+  'TR510', 'TR511', 'TR512', 'TR513', 'TR514',
+  'TR609', 'TR610', 'TR611', 'TR613', 'TR614', 'TR615', 'TR616'
+
+]
+
 const compareRoomById = (a: string, b: string) => {
-  const nameOrder = ['RB', 'AU']
-  const [aName, aNum] = a.split(' ')
-  const [bName, bNum] = b.split(' ')
-  if (nameOrder.includes(aName) && nameOrder.includes(bName)) return nameOrder.indexOf(aName) - nameOrder.indexOf(bName)
-  if (nameOrder.includes(aName)) return -1
-  if (nameOrder.includes(bName)) return 1
-  if (aNum > bNum) return 1
-  else if (aNum < bNum) return -1
-  else return 0
+  return ROOM_ORDER.indexOf(a) - ROOM_ORDER.indexOf(b)
 }
 
 function mapSessionsWithIndex (sessions: Session[]):SessionsMap {
@@ -151,12 +153,7 @@ export function getScheduleDays (elements: ScheduleElement[]): SchedulDay[] {
 }
 
 export function generateScheduleTable (elements: ScheduleElement[]): ScheduleTable {
-  const sortRoom = ['RB102', 'RB105']
   const rooms: RoomId[] = uniq(elements.map(e => e.room))
-  rooms.sort((a, b) => {
-    if (a.startsWith('RB') || b.startsWith('RB')) return sortRoom.indexOf(b) - sortRoom.indexOf(a)
-    else return a.localeCompare(b)
-  })
   const timePoints = getTimePoints(elements)
 
   const blankCell: ScheduleTableBlankCell = {
@@ -166,8 +163,6 @@ export function generateScheduleTable (elements: ScheduleElement[]): ScheduleTab
   const spanCell: ScheduleTableSpanCell = {
     type: 'span'
   }
-
-  console.log(rooms)
 
   const columnsOfBody = rooms.map(r => elements.filter(e => e.room === r))
     .map(els => {

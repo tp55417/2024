@@ -25,12 +25,12 @@ function transformTopicsMap (rows: TopicsRow[]) {
         image: `https://coscup.org/2023/images/community/${fallbackImageId.includes(r.id) ? 'coscup' : r.id}.png`,
         link: r.link,
         name: {
-          en: r['name:en'],
-          'zh-TW': r['name:zh-TW']
+          en: r['name:en'] ?? '',
+          'zh-TW': r['name:zh-TW'] ?? ''
         },
         intro: {
-          en: r['intro:en'],
-          'zh-TW': r['intro:zh-TW']
+          en: r['intro:en'] ?? '',
+          'zh-TW': r['intro:zh-TW'] ?? ''
         }
       }
     ]))

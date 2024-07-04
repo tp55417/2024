@@ -41,7 +41,7 @@ jobs:
         run: pnpm run lint
 
       - name: Download static resource
-        run: pnpm run tool:download-sponsor-image
+        run: pnpm run tool:download-static-resource
 
       - name: Build production 🚧
         run: pnpm run build

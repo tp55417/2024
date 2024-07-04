@@ -16,7 +16,7 @@
     "tool:generate-sitemap": "node ./scripts/tools/generateSitemap.js",
     "tool:generate-sitemap:local": "node ./scripts/tools/generateSitemap.js --local",
     "tool:optimize-png": "node ./scripts/tools/optimizePng.js",
-    "tool:download-sponsor-image": "npm run ts -- ./scripts/tools/downloadSponsorImg.ts"
+    "tool:download-static-resource": "npm run ts -- ./scripts/tools/downloadStaticResource.ts"
   },
   "dependencies": {
     "@gtm-support/vue-gtm": "^2.0.0",

@@ -19,7 +19,7 @@ async function downloadImage (url: string, path:string) {
   }
 }
 
-async function main () {
+export default async function main () {
   const doc = await getLoadedSpreadsheetDocument()
   const communityRow = await getSheetRows(doc, 'community')
   const dirPath = join(process.cwd(), 'public', 'images', 'community')
@@ -31,10 +31,3 @@ async function main () {
 
   return await Promise.all(images)
 }
-
-main()
-  .then(_ => process
-    .exit()).catch(e => {
-    console.log(e)
-    process.exit(e)
-  })

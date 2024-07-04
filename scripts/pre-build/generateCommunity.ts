@@ -32,26 +32,26 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
       {
         id: r.id,
         track: r.track,
-        image: `https://coscup.org/2024/images/community/${r.id}.png`,
+        image: `/2024/images/community/${r.id}.png`,
         link: r.link,
         name: {
-          en: r['name:en'],
-          'zh-TW': r['name:zh-TW']
+          en: r['name:en'] ?? '',
+          'zh-TW': r['name:zh-TW'] ?? ''
         },
         intro: {
-          en: r['intro:en'],
-          'zh-TW': r['intro:zh-TW']
+          en: r['intro:en'] ?? '',
+          'zh-TW': r['intro:zh-TW'] ?? ''
         },
         topics: topicsRows
           .filter(value => value.community_id === r.id)
           .map(row => ({
             name: {
-              en: row['name:en'],
-              'zh-TW': row['name:zh-TW']
+              en: row['name:en'] ?? '',
+              'zh-TW': row['name:zh-TW'] ?? ''
             },
             intro: {
-              en: row['intro:en'],
-              'zh-TW': row['intro:zh-TW']
+              en: row['intro:en'] ?? '',
+              'zh-TW': row['intro:zh-TW'] ?? ''
             },
             link: row.link
           })),
@@ -59,12 +59,12 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
           .filter(value => value.id === r.id)
           .map(row => ({
             name: {
-              en: row['name:en'],
-              'zh-TW': row['name:zh-TW']
+              en: row['name:en'] ?? '',
+              'zh-TW': row['name:zh-TW'] ?? ''
             },
             intro: {
-              en: row['intro:en'],
-              'zh-TW': row['intro:zh-TW']
+              en: row['intro:en'] ?? '',
+              'zh-TW': row['intro:zh-TW'] ?? ''
             },
             link: row.link
           }))

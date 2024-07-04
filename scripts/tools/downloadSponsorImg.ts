@@ -153,9 +153,7 @@ async function getSponsorNewsImage () {
   await downloadImages(imageData, outputPath)
 }
 
-function run () {
-  getSponsorImage()
-  getSponsorNewsImage()
+export default async function run () {
+  await getSponsorImage()
+  await getSponsorNewsImage()
 }
-
-run()

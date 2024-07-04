@@ -32,7 +32,7 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
       {
         id: r.id,
         track: r.track,
-        image: `https://coscup.org/2024/images/community/${r.id}.png`,
+        image: `/2024/images/community/${r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'] ?? '',

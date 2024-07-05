@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { faker } from '@faker-js/faker'
 import { getSheetRows, saveJSON } from './utils'
+import dotenv from 'dotenv'
+import { join } from 'node:path'
 
 import type { CommunityRow, PartnerRow, BoothsRow, TopicsRow } from './types'
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 
 async function fetchRemoteCommunityData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/community.json')
+  const { data } = await axios.get<unknown[]>(`https://coscup.org/${process.env.VITE_YEAR}/json/community.json`)
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }
@@ -32,7 +34,7 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
       {
         id: r.id,
         track: r.track,
-        image: `/2024/images/community/${r.id}.png`,
+        image: `/${process.env.VITE_YEAR}/images/community/${r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'] ?? '',
@@ -73,6 +75,9 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
 }
 
 export default async function generateCommunity (doc: GoogleSpreadsheet | null, fake = false) {
+  dotenv.config({ path: join(process.cwd(), '.env') })
+  dotenv.config({ path: join(process.cwd(), '.env.local') })
+
   let communityData: unknown
   if (fake) {
     // communityData = createFakeData()

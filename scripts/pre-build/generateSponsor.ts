@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { faker } from '@faker-js/faker'
 import { getSheetRows, saveJSON } from './utils'
+import dotenv from 'dotenv'
+import { join } from 'node:path'
 
 import type { SponsorLevelTuple, SponsorLevel, SponsorLevelRow, SponsorRow, SponsorNewsRow } from './types'
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 
 async function fetchRemoteSponsorData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/sponsor.json')
+  const { data } = await axios.get<unknown[]>(`https://coscup.org/${process.env.VITE_YEAR}/json/sponsor.json`)
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }
@@ -15,7 +17,7 @@ async function fetchRemoteSponsorData () {
 }
 
 async function fetchRemoteSponsorNewsData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/sponsor-news.json')
+  const { data } = await axios.get<unknown[]>(`https://coscup.org/${process.env.VITE_YEAR}/json/sponsor-news.json`)
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }
@@ -41,7 +43,7 @@ function transformSponsorMap (rows: SponsorRow[]) {
       {
         id: r.id,
         level: r.level,
-        image: `/2024/images/sponsor/${r.id}.png`,
+        image: `/${process.env.VITE_YEAR}/images/sponsor/${r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'],
@@ -64,8 +66,8 @@ function transformSponsorNews (rows: SponsorNewsRow[], sponsorLevelMap: ReturnTy
       id: r.newsId,
       sponsor: r.sponsorId,
       image: {
-        vertical: `/2024/images/sponsor-news/${r.sponsorId}-${r.newsId}-vertical.png`,
-        horizontal: `/2024/images/sponsor-news/${r.sponsorId}-${r.newsId}-horizontal.png`
+        vertical: `/${process.env.VITE_YEAR}/images/sponsor-news/${r.sponsorId}-${r.newsId}-vertical.png`,
+        horizontal: `/${process.env.VITE_YEAR}/images/sponsor-news/${r.sponsorId}-${r.newsId}-horizontal.png`
       },
       description: r.description,
       link: r.link,
@@ -174,6 +176,9 @@ function createFakeData () {
 }
 
 export default async function generateSponsor (doc: GoogleSpreadsheet | null, fake = false) {
+  dotenv.config({ path: join(process.cwd(), '.env') })
+  dotenv.config({ path: join(process.cwd(), '.env.local') })
+
   let sponsorData: unknown
   let sponsorNewsData: unknown
   if (fake) {

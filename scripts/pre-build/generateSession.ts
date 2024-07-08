@@ -197,7 +197,7 @@ function genResult (talks, rooms, speakers) {
       qa: getAnswer(s, SESSION_QA_ID, null),
       slide: getAnswer(s, SESSION_SLIDE_ID, null),
       record: getAnswer(s, SESSION_RECORD_ID, null),
-      uri: `https://coscup.org/2023/session/${s.code}`
+      uri: `https://coscup.org/2024/session/${s.code}`
     }
   })
 
@@ -221,7 +221,7 @@ export default async function run () {
     data = genResult(results[0].data, results[1].data, results[2].data)
   } catch (e) {
     console.error(e)
-    const { data: d } = await axios.get('https://coscup.org/2023/json/session.json')
+    const { data: d } = await axios.get('https://coscup.org/2024/json/session.json')
     data = d
   }
   saveJSON('session', data)

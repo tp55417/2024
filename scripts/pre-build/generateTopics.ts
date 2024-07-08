@@ -22,7 +22,7 @@ function transformTopicsMap (rows: TopicsRow[]) {
       r.id,
       {
         id: r.id,
-        image: `https://coscup.org/2023/images/community/${fallbackImageId.includes(r.id) ? 'coscup' : r.id}.png`,
+        image: `https://coscup.org/2024/images/community/${fallbackImageId.includes(r.id) ? 'coscup' : r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'] ?? '',

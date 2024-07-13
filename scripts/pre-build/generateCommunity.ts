@@ -32,7 +32,7 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
       {
         id: r.id,
         track: r.track,
-        image: `/2024/images/community/${r.id}.png`,
+        image: r.image ? `/2024/images/community/${r.id}.png` : '',
         link: r.link,
         name: {
           en: r['name:en'] ?? '',
@@ -56,7 +56,7 @@ function transformData (communityRows: CommunityRow[], topicsRows: TopicsRow[], 
             link: row.link
           })),
         booths: boothsRows
-          .filter(value => value.id === r.id)
+          .filter(value => value.community_id === r.id)
           .map(row => ({
             name: {
               en: row['name:en'] ?? '',

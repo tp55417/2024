@@ -94,7 +94,7 @@ export default defineConfig(({ mode, command }) => {
               }
             },
             {
-              urlPattern: /^https:\/\/coscup\.org\/2023\/json\/.*/i,
+              urlPattern: /^https:\/\/coscup\.org\/2024\/json\/.*/i,
               handler: 'NetworkFirst',
               options: {
                 cacheName: 'json-data-cache',

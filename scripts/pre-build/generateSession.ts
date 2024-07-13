@@ -2,15 +2,9 @@
 import axios from 'axios'
 import md5 from 'js-md5'
 import { saveJSON } from './utils'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
 import dotenv from 'dotenv'
 import CO_WRITE_MAP from './hackmd_url_mappings.json'
-
-dotenv.config()
-dotenv.config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env.local') })
-
-const pretalxOptions = { headers: { Authorization: `Token ${process.env.PRETALX_TOKEN}` } }
 
 const SPEAKER_ZH_NAME_ID = 0
 const SPEAKER_ZH_BIO_ID = 0
@@ -197,7 +191,7 @@ function genResult (talks, rooms, speakers) {
       qa: getAnswer(s, SESSION_QA_ID, null),
       slide: getAnswer(s, SESSION_SLIDE_ID, null),
       record: getAnswer(s, SESSION_RECORD_ID, null),
-      uri: `https://coscup.org/2024/session/${s.code}`
+      uri: `https://coscup.org/${process.env.VITE_YEAR}/session/${s.code}`
     }
   })
 
@@ -211,17 +205,21 @@ function genResult (talks, rooms, speakers) {
 }
 
 export default async function run () {
+  dotenv.config({ path: join(process.cwd(), '.env') })
+  dotenv.config({ path: join(process.cwd(), '.env.local') })
+
+  const pretalxOptions = { headers: { Authorization: `Token ${process.env.PRETALX_TOKEN}` } }
   let data = {}
   try {
     const results = await Promise.all([
-      axios.get('https://pretalx.coscup.org/api/events/coscup-2024/talks/?limit=500', pretalxOptions),
-      axios.get('https://pretalx.coscup.org/api/events/coscup-2024/rooms/?limit=500', pretalxOptions),
-      axios.get('https://pretalx.coscup.org/api/events/coscup-2024/speakers/?limit=500', pretalxOptions)
+      axios.get(`https://pretalx.coscup.org/api/events/coscup-${process.env.VITE_YEAR}/talks/?limit=500`, pretalxOptions),
+      axios.get(`https://pretalx.coscup.org/api/events/coscup-${process.env.VITE_YEAR}/rooms/?limit=500`, pretalxOptions),
+      axios.get(`https://pretalx.coscup.org/api/events/coscup-${process.env.VITE_YEAR}/speakers/?limit=500`, pretalxOptions)
     ])
     data = genResult(results[0].data, results[1].data, results[2].data)
   } catch (e) {
     console.error(e)
-    const { data: d } = await axios.get('https://coscup.org/2024/json/session.json')
+    const { data: d } = await axios.get(`https://coscup.org/${process.env.VITE_YEAR}/json/session.json`)
     data = d
   }
   saveJSON('session', data)

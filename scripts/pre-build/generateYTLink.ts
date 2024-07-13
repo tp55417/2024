@@ -1,11 +1,13 @@
 /* eslint-disable camelcase */
 import axios from 'axios'
 import { getSheetRows, saveJSON } from './utils'
+import dotenv from 'dotenv'
+import { join } from 'node:path'
 
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 
 async function fetchRemoteData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/ytLink.json')
+  const { data } = await axios.get<unknown[]>(`https://coscup.org/${process.env.VITE_YEAR}/json/ytLink.json`)
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }
@@ -14,6 +16,9 @@ async function fetchRemoteData () {
 }
 
 export default async function run (doc: GoogleSpreadsheet | null) {
+  dotenv.config({ path: join(process.cwd(), '.env') })
+  dotenv.config({ path: join(process.cwd(), '.env.local') })
+
   let data: unknown
   if (doc === null) {
     data = await fetchRemoteData()

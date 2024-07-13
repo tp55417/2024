@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { faker } from '@faker-js/faker'
 import { getSheetRows, saveJSON } from './utils'
+import dotenv from 'dotenv'
+import { join } from 'node:path'
 
 import type { TopicsRow } from './types'
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 
 async function fetchRemoteTopicsData () {
-  const { data } = await axios.get<unknown[]>('https://coscup.org/2024/json/topics.json')
+  const { data } = await axios.get<unknown[]>(`https://coscup.org/${process.env.VITE_YEAR}/json/topics.json`)
     .catch((e) => {
       console.log(e)
       return { data: [] as unknown[] }
@@ -22,7 +24,7 @@ function transformTopicsMap (rows: TopicsRow[]) {
       r.id,
       {
         id: r.id,
-        image: `https://coscup.org/2024/images/community/${fallbackImageId.includes(r.id) ? 'coscup' : r.id}.png`,
+        image: `https://coscup.org/${process.env.VITE_YEAR}/images/community/${fallbackImageId.includes(r.id) ? 'coscup' : r.id}.png`,
         link: r.link,
         name: {
           en: r['name:en'] ?? '',
@@ -58,6 +60,9 @@ function createFakeData () {
 }
 
 export default async function generateTopics (doc: GoogleSpreadsheet | null, fake = false) {
+  dotenv.config({ path: join(process.cwd(), '.env') })
+  dotenv.config({ path: join(process.cwd(), '.env.local') })
+
   let topicsData: unknown
   if (fake) {
     topicsData = createFakeData()

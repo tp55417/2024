@@ -6,8 +6,6 @@ import { join } from 'path'
 import dotenv from 'dotenv'
 import CO_WRITE_MAP from './hackmd_url_mappings.json'
 
-const pretalxOptions = { headers: { Authorization: `Token ${process.env.PRETALX_TOKEN}` } }
-
 const SPEAKER_ZH_NAME_ID = 0
 const SPEAKER_ZH_BIO_ID = 0
 const SPEAKER_EN_NAME_ID = 0
@@ -209,6 +207,8 @@ function genResult (talks, rooms, speakers) {
 export default async function run () {
   dotenv.config({ path: join(process.cwd(), '.env') })
   dotenv.config({ path: join(process.cwd(), '.env.local') })
+
+  const pretalxOptions = { headers: { Authorization: `Token ${process.env.PRETALX_TOKEN}` } }
   let data = {}
   try {
     const results = await Promise.all([

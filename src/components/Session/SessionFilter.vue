@@ -57,11 +57,6 @@ import { useI18n } from 'vue-i18n'
 import { Locale } from '@/modules/i18n'
 import { useRoute, useRouter } from 'vue-router'
 
-interface SessionTimeSpan {
-  startTime: Date;
-  endTime: Date;
-}
-
 export default defineComponent({
   name: 'SessionFilter',
   setup () {
@@ -114,29 +109,28 @@ export default defineComponent({
     }
 
     const checkMySchedule = () => {
-      const events: Array<SessionTimeSpan> = []
-
-      favoriteSessions.value.forEach((sessionId) => {
-        const session = computed(() => getSessionById(sessionId))
-        events.push({ startTime: new Date(session.value.start), endTime: new Date(session.value.end) })
+      const events = favoriteSessions.value.map((sessionId) => {
+        const session = getSessionById(sessionId)
+        return { startTime: new Date(session.start), endTime: new Date(session.end) }
       })
 
-      let isConflict = false
-      for (let i = 0; i < events.length - 1; i++) {
-        for (let j = i + 1; j < events.length; j++) {
-          const eventA = events[i]
-          const eventB = events[j]
-          if (
-            (eventA.endTime > eventB.startTime && eventA.startTime < eventB.endTime) ||
-                  (eventB.endTime > eventA.startTime && eventB.startTime < eventA.endTime)
-          ) {
-            isConflict = true
-            break
+      const isConflicting = () => {
+        for (let i = 0; i < events.length - 1; i++) {
+          for (let j = i + 1; j < events.length; j++) {
+            const eventA = events[i]
+            const eventB = events[j]
+            if (
+              (eventA.endTime > eventB.startTime && eventA.startTime < eventB.endTime) ||
+              (eventB.endTime > eventA.startTime && eventB.startTime < eventA.endTime)
+            ) {
+              return true
+            }
           }
         }
+        return false
       }
 
-      if (isConflict) {
+      if (isConflicting()) {
         window.alert(t('session.schedule_conflicts'))
       } else {
         window.alert(t('session.schedule_no_conflicts'))

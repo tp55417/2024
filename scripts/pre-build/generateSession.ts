@@ -185,7 +185,7 @@ function genResult (talks, rooms, speakers) {
         description: getAnswer(s, SESSION_EN_DESCRIPTION_ID, s.abstract || '')
       },
       speakers: s.speakers.map(ss => ss.code),
-      tags: getTags(s),
+      tags: getTags(s).concat(s.submission_type.en === 'prime session' ? ['Prime'] : []),
       // co_write: getAnswer(s, SESSION_CO_WRITE_ID, null),
       co_write: CO_WRITE_MAP?.[s.code as keyof typeof CO_WRITE_MAP]?.URL || null,
       qa: getAnswer(s, SESSION_QA_ID, null),

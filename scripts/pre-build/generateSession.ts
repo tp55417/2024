@@ -45,16 +45,19 @@ function genResult (talks, rooms, speakers) {
     })
 
   const resSpeakers = speakers.results.map(s => {
+    const zh_bio = filterUnknownChar(getAnswer(s, SPEAKER_ZH_BIO_ID, s.biography || '-'))
+    const en_bio = filterUnknownChar(getAnswer(s, SPEAKER_EN_BIO_ID, s.biography || '-'))
+
     return {
       id: s.code,
       avatar: s.avatar || `https://www.gravatar.com/avatar/${md5(s.email)}?s=1024&d=identicon&r=g`,
       zh: {
         name: getAnswer(s, SPEAKER_ZH_NAME_ID, s.name),
-        bio: filterUnknownChar(getAnswer(s, SPEAKER_ZH_BIO_ID, s.biography || '-'))
+        bio: zh_bio === '-' ? en_bio : zh_bio
       },
       en: {
         name: getAnswer(s, SPEAKER_EN_NAME_ID, s.name),
-        bio: filterUnknownChar(getAnswer(s, SPEAKER_EN_BIO_ID, s.biography || '-'))
+        bio: en_bio === '-' ? zh_bio : en_bio
       }
     }
   })

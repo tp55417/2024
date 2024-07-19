@@ -148,6 +148,15 @@ function genResult (talks, rooms, speakers) {
       en: {
         name: 'Japanese'
       }
+    },
+    {
+      id: 'taiwanese',
+      zh: {
+        name: '台語'
+      },
+      en: {
+        name: 'Taiwanese'
+      }
     }
   ]
 
@@ -160,11 +169,15 @@ function genResult (talks, rooms, speakers) {
     const tagsMapping:Record<string, string> = {
       Chinese: 'zh-tw',
       English: 'en',
-      Japanese: 'ja-JP'
+      Japanese: 'ja-JP',
+      日文: 'ja-JP',
+      Taiwanese: 'taiwanese'
     }
 
     let lang:string | string[]| undefined = tagsMapping[answer]
     lang = lang ? [lang] : []
+
+    if (lang.length === 0) console.log(answer)
 
     return lang
       .concat(s.answers.find(a => a.question.id === SESSION_TAGS_ID) !== undefined ? [s.answers.find(a => a.question.id === SESSION_TAGS_ID).options[0].answer.en] : [])

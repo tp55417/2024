@@ -98,11 +98,11 @@ export default defineComponent({
           title: t('home.notice.title'),
           content: markdown(t('home.notice.content'))
         },
-        {
-          name: 'coc',
-          title: t('home.coc.title'),
-          content: markdown(t('home.coc.content'))
-        },
+        // {
+        //   name: 'coc',
+        //   title: t('home.coc.title'),
+        //   content: markdown(t('home.coc.content'))
+        // },
         {
           name: 'about',
           title: t('home.about.title'),
